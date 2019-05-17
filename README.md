@@ -1,4 +1,4 @@
-# Ejercicio 6 La Agenda [![Codacy Badge](https://api.codacy.com/project/badge/Grade/72f65eb3758f41f9855045349bebab78)](https://www.codacy.com/app/DanyHerz42/06-app-agenda-DanyHerz42?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/06-app-agenda-DanyHerz42&amp;utm_campaign=Badge_Grade)
+# Ejercicio 6 La Agenda [![Codacy Badge](https://api.codacy.com/project/badge/Grade/72f65eb3758f41f9855045349bebab78)](https://www.codacy.com/app/DanyHerz42/06-app-agenda-DanyHerz42?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/06-app-agenda-DanyHerz42&amp;utm_campaign=Badge_Grade) [![codebeat badge](https://codebeat.co/badges/6e59b0fb-7f9b-49b3-94f3-50ce88092fc5)](https://codebeat.co/projects/github-com-poo-2019-2k-06-app-agenda-danyherz42-master)
 
 ## Tiempo para realizar la actividad
 
