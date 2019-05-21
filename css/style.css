@@ -1,0 +1,14 @@
+table thead tr:hover{
+    background-color: white;
+    cursor: auto;
+}
+
+table tr:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+.form-group{
+    height: 90px;
+    box-sizing: border-box;
+}
