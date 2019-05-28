@@ -2,19 +2,21 @@ import Contacto from "./contact.js";
 import Table from "./table.js";
 class Main {
     constructor() {
-        
+
         // localStorage.clear();
         let aCon = [];
         let table = document.querySelector("#table");
         let nTable = new Table(table);
         if (localStorage.getItem("contacts") === null) {
-            return;
+            
         } else {
             aCon = JSON.parse(localStorage.getItem('contacts'));
             nTable._generateTable(aCon);
+            console.log("hola")
         }
-        document.querySelector("#btnAdd").addEventListener("click", () => {
-            this._validarFormulario();
+        let btn = document.querySelector("#btnAdd")
+        btn.addEventListener("click", () => {
+           this._validarFormulario()
             
         });
         let orderAge = document.querySelector("#orderAge").addEventListener("click", () => {
