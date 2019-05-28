@@ -1,6 +1,7 @@
 import Contacto from "./contact.js";
 class Main{
     constructor(){
+        // localStorage.clear();
         document.querySelector("#btnAdd").addEventListener("click", () => {
             this._validarFormulario();    
         });

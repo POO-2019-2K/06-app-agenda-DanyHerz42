@@ -22,6 +22,7 @@ export default class Contacto {
     }
 
     guardarEnLocalStorage() {
+        let aCont = [];
         let objeto = {
             name: this._name,
             phone: this._phone,
@@ -29,7 +30,16 @@ export default class Contacto {
             age: this._calcularEdad(this._obtenerObjetoFecha(this._birthdate)),
             email: this._email
         }
-        return console.log(objeto);
+        
+        if(localStorage.getItem("contacts") === null){
+            aCont.push(objeto);
+        }else{
+            aCont = JSON.parse(localStorage.getItem("contacts"));
+            aCont.push(objeto);
+        }
+
+        localStorage.setItem("contacts", JSON.stringify(aCont));
+        console.log(localStorage.getItem("contacts"));
     }
 
     _calcularEdad(birthdate) {
