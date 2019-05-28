@@ -3,8 +3,6 @@ export default class Contacto {
         this._name = contacto.name;
         this._phone = contacto.phone;
         this._birthdate = contacto.birthdate;
-        this._email = contacto.email;
-        this.guardarEnLocalStorage();
     }
 
     _obtenerFechaString(fecha) {
@@ -21,25 +19,21 @@ export default class Contacto {
         return oFecha;
     }
 
-    guardarEnLocalStorage() {
+    _guardarEnLocalStorage() {
         let aCont = [];
         let objeto = {
             name: this._name,
             phone: this._phone,
             birthdate: this._obtenerFechaString(this._birthdate),
             age: this._calcularEdad(this._obtenerObjetoFecha(this._birthdate)),
-            email: this._email
-        }
-        
+        }    
         if(localStorage.getItem("contacts") === null){
             aCont.push(objeto);
         }else{
             aCont = JSON.parse(localStorage.getItem("contacts"));
             aCont.push(objeto);
-        }
-
-        localStorage.setItem("contacts", JSON.stringify(aCont));
-        console.log(localStorage.getItem("contacts"));
+        }        localStorage.setItem("contacts", JSON.stringify(aCont));
+        console.log(JSON.parse(localStorage.getItem("contacts")));
     }
 
     _calcularEdad(birthdate) {

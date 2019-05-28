@@ -4,7 +4,7 @@ table thead tr:hover{
 }
 
 table tr:hover{
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.377);
     cursor: pointer;
 }
 
