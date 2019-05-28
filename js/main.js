@@ -12,7 +12,6 @@ class Main {
         } else {
             aCon = JSON.parse(localStorage.getItem('contacts'));
             nTable._generateTable(aCon);
-            console.log("hola")
         }
         let btn = document.querySelector("#btnAdd")
         btn.addEventListener("click", () => {

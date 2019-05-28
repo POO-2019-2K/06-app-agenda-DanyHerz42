@@ -21,6 +21,7 @@ export default class Contacto {
     }
 
     _guardarEnLocalStorage() {
+        let table = new Table(document.querySelector("#table"));
         let aCont = [];
         let objeto = {
             name: this._name,
@@ -30,8 +31,18 @@ export default class Contacto {
         }
         if (localStorage.getItem("contacts") === null) {
             aCont.push(objeto);
+            localStorage.setItem("contacts", JSON.stringify(aCont));
+            table._generateTable(aCont);
+            console.log(JSON.parse(localStorage.getItem("contacts")));
+            Swal.fire({
+                type: "success",
+                text: "Added contact!",
+                title: "Ready!",
+                confirmButtonText: "OK"
+            })
         } else {
             let bandera = true;
+            aCont = JSON.parse(localStorage.getItem("contacts"));
             aCont.forEach((e, index) => {
                 console.log(e.phone, objeto.phone)
                 if (e.phone === objeto.phone) {
@@ -47,19 +58,17 @@ export default class Contacto {
             if (bandera === true) {
                 aCont = JSON.parse(localStorage.getItem("contacts"));
                 aCont.push(objeto);
-                let table = new Table(document.querySelector("#table"));
                 table._generateTable(aCont);
+                localStorage.setItem("contacts", JSON.stringify(aCont));
+                console.log(JSON.parse(localStorage.getItem("contacts")));
+                Swal.fire({
+                    type: "success",
+                    text: "Added contact!",
+                    title: "Ready!",
+                    confirmButtonText: "OK"
+                })
             }
-
         }
-        localStorage.setItem("contacts", JSON.stringify(aCont));
-        console.log(JSON.parse(localStorage.getItem("contacts")));
-        Swal.fire({
-            type: "success",
-            text: "Added contact!",
-            title: "Ready!",
-            confirmButtonText: "OK"
-        })
     }
 
     _calcularEdad(birthdate) {
@@ -74,13 +83,13 @@ export default class Contacto {
         return age;
     }
 
-    _eliminarContacto(phone){
+    _eliminarContacto(phone) {
         let aCont = JSON.parse(localStorage.getItem("contacts"));
-        aCont.forEach((e,index) => {
-            if(phone === e.phone){
-                aCont.splice(index,1);
+        aCont.forEach((e, index) => {
+            if (phone === e.phone) {
+                aCont.splice(index, 1);
             }
         });
-        localStorage.setItem("contacts",JSON.stringify(aCont));
+        localStorage.setItem("contacts", JSON.stringify(aCont));
     }
 }
