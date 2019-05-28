@@ -12,3 +12,8 @@ table tr:hover{
     height: 90px;
     box-sizing: border-box;
 }
+
+.principal{
+    height: 500px;
+    overflow-y: scroll;
+}

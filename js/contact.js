@@ -1,3 +1,4 @@
+import Table from "./table.js";
 export default class Contacto {
     constructor(contacto) {
         this._name = contacto.name;
@@ -26,14 +27,39 @@ export default class Contacto {
             phone: this._phone,
             birthdate: this._obtenerFechaString(this._birthdate),
             age: this._calcularEdad(this._obtenerObjetoFecha(this._birthdate)),
-        }    
-        if(localStorage.getItem("contacts") === null){
+        }
+        if (localStorage.getItem("contacts") === null) {
             aCont.push(objeto);
-        }else{
-            aCont = JSON.parse(localStorage.getItem("contacts"));
-            aCont.push(objeto);
-        }        localStorage.setItem("contacts", JSON.stringify(aCont));
+        } else {
+            let bandera = true;
+            aCont.forEach((e, index) => {
+                console.log(e.phone, objeto.phone)
+                if (e.phone === objeto.phone) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'This person is already added to this workshop!',
+                        type: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                    bandera = false;
+                }
+            })
+            if (bandera === true) {
+                aCont = JSON.parse(localStorage.getItem("contacts"));
+                aCont.push(objeto);
+                let table = new Table(document.querySelector("#table"));
+                table._generateTable(aCont);
+            }
+
+        }
+        localStorage.setItem("contacts", JSON.stringify(aCont));
         console.log(JSON.parse(localStorage.getItem("contacts")));
+        Swal.fire({
+            type: "success",
+            text: "Added contact!",
+            title: "Ready!",
+            confirmButtonText: "OK"
+        })
     }
 
     _calcularEdad(birthdate) {
@@ -46,5 +72,15 @@ export default class Contacto {
 
         let age = Math.trunc(differenceMs / oneYear);
         return age;
+    }
+
+    _eliminarContacto(phone){
+        let aCont = JSON.parse(localStorage.getItem("contacts"));
+        aCont.forEach((e,index) => {
+            if(phone === e.phone){
+                aCont.splice(index,1);
+            }
+        });
+        localStorage.setItem("contacts",JSON.stringify(aCont));
     }
 }

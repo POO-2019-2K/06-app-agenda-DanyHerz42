@@ -15,16 +15,14 @@
 
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand">Schedule</a>
-        <form class="form-inline">
-        </form>
+        <h1 >Schedule</h1>
     </nav>
     <div class="container-fluid border">
         <div class="row">
-            <div class="col-8 border">
+            <div class="col-8 border principal">
                 <div class="col-12">
                     <table id="table" class="table">
-                       
+
                     </table>
                 </div>
             </div>
@@ -48,9 +46,15 @@
                         <div class="valid-feedback">Correct</div>
                         <div class="invalid-feedback">Incorrect</div>
                     </div>
-                    <button type="button" id="btnAdd" class="btn btn-outline-success"><i class="fas fa-user-plus"></i> Add Contact</button>
+                    <button type="button" id="btnAdd" class="btn btn-outline-success"><i class="fas fa-user-plus"></i>
+                        Add Contact</button>
                 </form>
             </div>
+        </div>
+        <div class="col-4 my-2">
+            <label for="">Organize by: </label>
+            <button type="button" class="btn btn-success">Age</button>
+            <button type="button" class="btn btn-primary">Alphabet</button>
         </div>
     </div>
 
@@ -65,5 +69,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 </html>

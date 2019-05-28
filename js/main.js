@@ -23,7 +23,7 @@ class Main{
             let contact = {
                 name: document.querySelector("#name").value,
                 phone: document.querySelector("#phone").value,
-                birthdate: document.querySelector("#birthdate").value,
+                birthdate: document.querySelector("#birthdate").value
             };   
             let contacto = new Contacto(contact);
             contacto._guardarEnLocalStorage();

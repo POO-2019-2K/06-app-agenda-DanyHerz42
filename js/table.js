@@ -1,16 +1,19 @@
-export default class Table{
-    constructor(table){
+import Contacto from "./contact.js";
+
+export default class Table {
+    constructor(table) {
         this._table = table;
     }
 
-    _generateTable(contactos){
+    _generateTable(contactos) {
+        this._table.innerHTML = ""
         this._generateHeaderTable();
-        contactos.forEach((e,index) => {
+        contactos.forEach((e, index) => {
             this._generateRow(e);
         });
     }
 
-    _generateRow(e){
+    _generateRow(e) {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
         td1.textContent = e.name;
@@ -25,6 +28,35 @@ export default class Table{
         btnRemove.className = "btn btn-danger";
         btnRemove.type = "button";
         btnRemove.value = "Delete";
+        btnRemove.addEventListener("click", () => {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    let obj = {
+                        name: e.name,
+                        phone: e.phone,
+                        birthdate: e.birthdate
+                    }
+                    let contact = new Contacto(obj);
+                    contact._eliminarContacto(e.phone);
+                    this._table.removeChild(tr);
+
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+
+        });
 
         td5.appendChild(btnRemove)
         tr.appendChild(td1);
@@ -35,7 +67,7 @@ export default class Table{
         this._table.appendChild(tr);
     }
 
-    _generateHeaderTable(){
+    _generateHeaderTable() {
         let tHead = document.createElement("thead");
         let tr = document.createElement("tr");
         let th1 = document.createElement("th");
@@ -48,7 +80,7 @@ export default class Table{
         th4.textContent = "Age";
         let th5 = document.createElement("th");
         th5.textContent = "Actions";
-   
+
         tr.appendChild(th1);
         tr.appendChild(th2);
         tr.appendChild(th3);
