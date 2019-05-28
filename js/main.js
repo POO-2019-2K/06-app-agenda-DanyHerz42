@@ -1,7 +1,8 @@
 import Contacto from "./contact.js";
 import Table from "./table.js";
-class Main{
-    constructor(){
+class Main {
+    constructor() {
+        
         // localStorage.clear();
         let aCon = [];
         let table = document.querySelector("#table");
@@ -10,26 +11,33 @@ class Main{
             return;
         } else {
             aCon = JSON.parse(localStorage.getItem('contacts'));
-            nTable._generateTable(aCon); 
+            nTable._generateTable(aCon);
         }
         document.querySelector("#btnAdd").addEventListener("click", () => {
-            this._validarFormulario();    
+            this._validarFormulario();
+            
+        });
+        let orderAge = document.querySelector("#orderAge").addEventListener("click", () => {
+            nTable._orderTableByAge();
+        });
+        let orderAlphabet = document.querySelector("#orderAlphabet").addEventListener("click", () => {
+            nTable._orderTableByAlphabet();
+            console.log("hola");
         });
     }
 
-    _validarFormulario(){
+    _validarFormulario() {
         let form = document.querySelector("#form");
-        if(form.checkValidity() === true){
+        if (form.checkValidity() === true) {
             let contact = {
                 name: document.querySelector("#name").value,
                 phone: document.querySelector("#phone").value,
                 birthdate: document.querySelector("#birthdate").value
-            };   
+            };
             let contacto = new Contacto(contact);
             contacto._guardarEnLocalStorage();
         }
         form.classList.add("was-validated");
-
     }
 }
 new Main();

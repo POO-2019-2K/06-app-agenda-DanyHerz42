@@ -89,4 +89,38 @@ export default class Table {
         tHead.appendChild(tr);
         this._table.appendChild(tHead);
     }
+
+    _orderTableByAge(){
+        let comp =[];
+        comp = JSON.parse(localStorage.getItem("contacts"));
+        comp.forEach((j,indice) => {
+            comp.sort(function (o1, o2) {
+                if (o1.age > o2.age) { //comparación lexicogŕafica
+                    return 1;
+                } else if (o1.age < o2.age) {
+                    return -1;
+                }
+                return 0;
+            });
+        })
+        
+        this._generateTable(comp);
+    }
+
+    _orderTableByAlphabet(){
+        let comp =[];
+        comp = JSON.parse(localStorage.getItem("contacts"));
+        comp.forEach((j,indice) => {
+            comp.sort(function (o1, o2) {
+                if (o1.name > o2.name) { //comparación lexicogŕafica
+                    return 1;
+                } else if (o1.name < o2.name) {
+                    return -1;
+                }
+                return 0;
+            });
+        })
+        
+        this._generateTable(comp);
+    }
 } 
