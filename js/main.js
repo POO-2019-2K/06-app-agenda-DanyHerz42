@@ -7,10 +7,8 @@ class Main {
         let aCon = [];
         let table = document.querySelector("#table");
         let nTable = new Table(table);
-        if (localStorage.getItem("contacts") === null) {
-            
-        } else {
-            aCon = JSON.parse(localStorage.getItem('contacts'));
+        if (!(localStorage.getItem("contacts") === null)) {
+            aCon = JSON.parse(localStorage.getItem("contacts"));
             nTable._generateTable(aCon);
         }
         let btn = document.querySelector("#btnAdd")
@@ -23,7 +21,6 @@ class Main {
         });
         let orderAlphabet = document.querySelector("#orderAlphabet").addEventListener("click", () => {
             nTable._orderTableByAlphabet();
-            console.log("hola");
         });
     }
 
