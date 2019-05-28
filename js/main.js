@@ -13,7 +13,7 @@ class Main{
                 name: document.querySelector("#name").value,
                 phone: document.querySelector("#phone").value,
                 birthdate: document.querySelector("#birthdate").value,
-                email: document.querySelector("#email")
+                email: document.querySelector("#email").value
             };   
             let contacto = new Contacto(contact);
         }
