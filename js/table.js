@@ -102,7 +102,7 @@ export default class Table {
                 }
                 return 0;
             });
-        })
+        });
         
         this._generateTable(comp);
     }
