@@ -54,7 +54,7 @@ export default class Table {
                         "success"
                     );
                 }
-            })
+            });
 
         });
 
