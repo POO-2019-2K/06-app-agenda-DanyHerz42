@@ -6,7 +6,7 @@ export default class Table {
     }
 
     _generateTable(contactos) {
-        this._table.innerHTML = ""
+        this._table.innerHTML = "";
         this._generateHeaderTable();
         contactos.forEach((e, index) => {
             this._generateRow(e);
@@ -30,35 +30,35 @@ export default class Table {
         btnRemove.value = "Delete";
         btnRemove.addEventListener("click", () => {
             Swal.fire({
-                title: 'Are you sure?',
+                title: "Are you sure?",
                 text: "You won't be able to revert this!",
-                type: 'warning',
+                type: "warning",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.value) {
                     let obj = {
                         name: e.name,
                         phone: e.phone,
                         birthdate: e.birthdate
-                    }
+                    };
                     let contact = new Contacto(obj);
                     contact._eliminarContacto(e.phone);
                     this._table.removeChild(tr);
 
                     Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                        "Deleted!",
+                        "Your file has been deleted.",
+                        "success"
                     )
                 }
             })
 
         });
 
-        td5.appendChild(btnRemove)
+        td5.appendChild(btnRemove);
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
@@ -119,7 +119,7 @@ export default class Table {
                 }
                 return 0;
             });
-        })
+        });
         
         this._generateTable(comp);
     }

@@ -7,8 +7,8 @@ export default class Contacto {
     }
 
     _obtenerFechaString(fecha) {
-        let objetoFecha = this._obtenerObjetoFecha(fecha)
-        let arrayMeses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        let objetoFecha = this._obtenerObjetoFecha(fecha);
+        let arrayMeses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
         let s = fecha.split("-");
         let stringFecha = s[2] + "/" + arrayMeses[objetoFecha.getMonth()] + "/" + s[0];
         return stringFecha;
@@ -28,7 +28,7 @@ export default class Contacto {
             phone: this._phone,
             birthdate: this._obtenerFechaString(this._birthdate),
             age: this._calcularEdad(this._obtenerObjetoFecha(this._birthdate)),
-        }
+        };
         if (localStorage.getItem("contacts") === null) {
             aCont.push(objeto);
             localStorage.setItem("contacts", JSON.stringify(aCont));
@@ -44,13 +44,12 @@ export default class Contacto {
             let bandera = true;
             aCont = JSON.parse(localStorage.getItem("contacts"));
             aCont.forEach((e, index) => {
-                console.log(e.phone, objeto.phone)
                 if (e.phone === objeto.phone) {
                     Swal.fire({
-                        title: 'Error!',
-                        text: 'This person is already added to this workshop!',
-                        type: 'error',
-                        confirmButtonText: 'OK'
+                        title: "Error!",
+                        text: "This person is already added to this workshop!",
+                        type: "error",
+                        confirmButtonText: "OK"
                     });
                     bandera = false;
                 }
@@ -60,13 +59,12 @@ export default class Contacto {
                 aCont.push(objeto);
                 table._generateTable(aCont);
                 localStorage.setItem("contacts", JSON.stringify(aCont));
-                console.log(JSON.parse(localStorage.getItem("contacts")));
                 Swal.fire({
                     type: "success",
                     text: "Added contact!",
                     title: "Ready!",
                     confirmButtonText: "OK"
-                })
+                });
             }
         }
     }

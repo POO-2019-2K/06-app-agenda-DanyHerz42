@@ -11,9 +11,9 @@ class Main {
             aCon = JSON.parse(localStorage.getItem("contacts"));
             nTable._generateTable(aCon);
         }
-        let btn = document.querySelector("#btnAdd")
+        let btn = document.querySelector("#btnAdd");
         btn.addEventListener("click", () => {
-           this._validarFormulario()
+           this._validarFormulario();
             
         });
         let orderAge = document.querySelector("#orderAge").addEventListener("click", () => {
