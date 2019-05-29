@@ -52,7 +52,7 @@ export default class Table {
                         "Deleted!",
                         "Your file has been deleted.",
                         "success"
-                    )
+                    );
                 }
             })
 
