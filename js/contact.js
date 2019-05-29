@@ -33,7 +33,6 @@ export default class Contacto {
             aCont.push(objeto);
             localStorage.setItem("contacts", JSON.stringify(aCont));
             table._generateTable(aCont);
-            console.log(JSON.parse(localStorage.getItem("contacts")));
             Swal.fire({
                 type: "success",
                 text: "Added contact!",
@@ -53,7 +52,7 @@ export default class Contacto {
                     });
                     bandera = false;
                 }
-            })
+            });
             if (bandera === true) {
                 aCont = JSON.parse(localStorage.getItem("contacts"));
                 aCont.push(objeto);
