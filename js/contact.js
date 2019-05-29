@@ -38,7 +38,7 @@ export default class Contacto {
                 text: "Added contact!",
                 title: "Ready!",
                 confirmButtonText: "OK"
-            })
+            });
         } else {
             let bandera = true;
             aCont = JSON.parse(localStorage.getItem("contacts"));
